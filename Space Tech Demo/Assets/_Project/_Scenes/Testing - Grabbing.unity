@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 659152912}
   - component: {fileID: 659152917}
   - component: {fileID: 659152916}
+  - component: {fileID: 659152918}
   m_Layer: 0
   m_Name: Cube - M
   m_TagString: isGrabable
@@ -570,13 +571,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 659152911}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09cc71b5a2c6ac6478509d807d169dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _joint: {fileID: 0}
   _selectionObject: {fileID: 1633364270}
+  isBeingGrabbed: 0
 --- !u!54 &659152917
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -592,6 +594,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &659152918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 659152911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allowOffhandGrab: 1
+  m_snapPosition: 0
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 0}
+  m_grabPoints: []
+  _selectionObject: {fileID: 1633364270}
 --- !u!1 &788943885
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +624,7 @@ GameObject:
   - component: {fileID: 788943886}
   - component: {fileID: 788943891}
   - component: {fileID: 788943890}
+  - component: {fileID: 788943892}
   m_Layer: 0
   m_Name: Cube - L
   m_TagString: isGrabable
@@ -685,13 +705,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 788943885}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09cc71b5a2c6ac6478509d807d169dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _joint: {fileID: 0}
   _selectionObject: {fileID: 1158213123}
+  isBeingGrabbed: 0
 --- !u!54 &788943891
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -707,6 +728,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &788943892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788943885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allowOffhandGrab: 1
+  m_snapPosition: 0
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 0}
+  m_grabPoints: []
+  _selectionObject: {fileID: 1158213123}
 --- !u!1 &1030944880
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +758,7 @@ GameObject:
   - component: {fileID: 1030944881}
   - component: {fileID: 1030944886}
   - component: {fileID: 1030944885}
+  - component: {fileID: 1030944887}
   m_Layer: 0
   m_Name: Cube - S
   m_TagString: isGrabable
@@ -800,13 +839,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1030944880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09cc71b5a2c6ac6478509d807d169dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _joint: {fileID: 0}
   _selectionObject: {fileID: 1199617770}
+  isBeingGrabbed: 0
 --- !u!54 &1030944886
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -822,6 +862,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1030944887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030944880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allowOffhandGrab: 1
+  m_snapPosition: 0
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 0}
+  m_grabPoints: []
+  _selectionObject: {fileID: 1199617770}
 --- !u!1 &1158213123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,13 +1407,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2031208250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419ad4f31bf72c2409b8f2cbd42645ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 446aba60c2aa01346a57e8fd9b8b8032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: 2
-  _attachPoint: {fileID: 2031208255}
-  _grabableTag: isGrabable
-  _rumbleHz: {fileID: 8300000, guid: 0690e52d368a2e84f8a987d41c99d432, type: 3}
 --- !u!135 &2031208254
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1392,13 +1445,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2031208251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419ad4f31bf72c2409b8f2cbd42645ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 446aba60c2aa01346a57e8fd9b8b8032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: 1
-  _attachPoint: {fileID: 2031208258}
-  _grabableTag: isGrabable
-  _rumbleHz: {fileID: 8300000, guid: 0690e52d368a2e84f8a987d41c99d432, type: 3}
 --- !u!135 &2031208257
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1426,6 +1475,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &2031208259 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 487254, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+  m_PrefabInternal: {fileID: 2031208247}
+--- !u!4 &2031208260 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 482130, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+  m_PrefabInternal: {fileID: 2031208247}
+--- !u!114 &2031208261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2031208250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd425c2d06f39bf4899d07c05d0f10eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabBegin: 0.55
+  grabEnd: 0.35
+  m_parentHeldObject: 0
+  m_gripTransform: {fileID: 2031208259}
+  m_grabVolumes: []
+  m_controller: 2
+  m_parentTransform: {fileID: 2031208248}
+  _rumbleHz: {fileID: 8300000, guid: 0690e52d368a2e84f8a987d41c99d432, type: 3}
+--- !u!114 &2031208262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2031208251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd425c2d06f39bf4899d07c05d0f10eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabBegin: 0.55
+  grabEnd: 0.35
+  m_parentHeldObject: 0
+  m_gripTransform: {fileID: 2031208260}
+  m_grabVolumes: []
+  m_controller: 1
+  m_parentTransform: {fileID: 2031208248}
+  _rumbleHz: {fileID: 8300000, guid: 0690e52d368a2e84f8a987d41c99d432, type: 3}
 --- !u!1 &2083931274
 GameObject:
   m_ObjectHideFlags: 0

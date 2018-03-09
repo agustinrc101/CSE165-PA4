@@ -37,6 +37,8 @@ public class OVRGrabbable : MonoBehaviour
     protected Transform m_snapOffset;
     [SerializeField]
     protected Collider[] m_grabPoints = null;
+	[SerializeField]
+	private GameObject _selectionObject;
 
     protected bool m_grabbedKinematic = false;
     protected Collider m_grabbedCollider = null;
@@ -166,4 +168,6 @@ public class OVRGrabbable : MonoBehaviour
             m_grabbedBy.ForceRelease(this);
         }
     }
+
+	public void setActiveSelectionObject(bool b) { _selectionObject.SetActive(b); }
 }

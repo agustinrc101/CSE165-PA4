@@ -23,6 +23,9 @@ public class HandsBehavior : MonoBehaviour {
 		switch (_handState) {
 			case HandState.TOUCHING:
 				if (_tempJoint == null && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, _controller) >= 0.5f) {
+					if (_heldObject.gameObject.GetComponent<GrabableObject>().isBeingGrabbed)
+						break;
+
 					_heldObject.velocity = Vector3.zero;
 
 					_tempJoint = _heldObject.gameObject.GetComponent<FixedJoint>();
@@ -30,6 +33,7 @@ public class HandsBehavior : MonoBehaviour {
 						_tempJoint = _heldObject.gameObject.AddComponent<FixedJoint>();
 
 					_tempJoint.connectedBody = _attachPoint;
+					_heldObject.gameObject.GetComponent<GrabableObject>().isBeingGrabbed = true;
 					_handState = HandState.HOLDING;
 					highlight(false);
 				}
@@ -42,6 +46,7 @@ public class HandsBehavior : MonoBehaviour {
 							Object.DestroyImmediate(_tempJoint);
 					}
 
+					_heldObject.gameObject.GetComponent<GrabableObject>().isBeingGrabbed = false;
 					_tempJoint = null;
 					throwObject();
 					_handState = HandState.EMPTY;
@@ -56,33 +61,51 @@ public class HandsBehavior : MonoBehaviour {
 			default:
 				break;
 		}
-
-		if (_controller == OVRInput.Controller.RTouch && _handState == HandState.HOLDING)
-			Debug.Log(_tempJoint != null);
 	}
 
 	private void throwObject() {
-		Quaternion playerRot = _player.transform.rotation;
-		_heldObject.velocity = OVRInput.GetLocalControllerVelocity(_controller);
-		_heldObject.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(_controller);
-		_heldObject.maxAngularVelocity = _heldObject.angularVelocity.magnitude;
+		//_heldObject.velocity = OVRInput.GetLocalControllerVelocity(_controller);
+		//_heldObject.angularVelocity = (OVRInput.GetLocalControllerRotation(_controller) * _player.transform.rotation).eulerAngles * Mathf.Deg2Rad;
+		//_heldObject.maxAngularVelocity = _heldObject.angularVelocity.magnitude;
+
+		OVRPose localPose = new OVRPose { position = OVRInput.GetLocalControllerPosition(_controller), orientation = OVRInput.GetLocalControllerRotation(_controller) };
+		OVRPose offsetPose = new OVRPose { position = _attachPoint.position, orientation = _attachPoint.rotation };
+		localPose = localPose * offsetPose;
+
+		OVRPose trackingSpace = transform.ToOVRPose() * localPose.Inverse();
+		Vector3 linearVelocity = trackingSpace.orientation * OVRInput.GetLocalControllerVelocity(_controller);
+		Vector3 angularVelocity = trackingSpace.orientation * OVRInput.GetLocalControllerAngularVelocity(_controller);
+
+		_heldObject.velocity = linearVelocity;
+		_heldObject.angularVelocity = angularVelocity;
+		//_heldObject.maxAngularVelocity = _heldObject.angularVelocity.magnitude;
+
 	}
 
 	//Touched
 	void OnTriggerEnter(Collider other) {
-		triggerDetection(other);
-		if (other.CompareTag(_grabableTag))
+		if (other.CompareTag(_grabableTag)
+			&& other.gameObject.GetComponent<GrabableObject>() != null
+			&& !other.gameObject.GetComponent<GrabableObject>().isBeingGrabbed) {
+
+			triggerDetection(other);
 			rumble();
+		}
 	}
 	
 	//Touching
 	void OnTriggerStay(Collider other) {
-		triggerDetection(other);
+		if (other.CompareTag(_grabableTag) && _handState == HandState.EMPTY
+			&& other.gameObject.GetComponent<GrabableObject>() != null
+			&& !other.gameObject.GetComponent<GrabableObject>().isBeingGrabbed) {
+
+			triggerDetection(other);
+		}
 	}
 
 	private void triggerDetection(Collider other) {
-		if (other.CompareTag(_grabableTag) && _handState == HandState.EMPTY
-			&& OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, _controller) < 0.5f) {
+		if (_handState == HandState.EMPTY && 
+			OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, _controller) < 0.5f) {
 
 			GameObject temp = other.gameObject;
 			if (temp != null) {

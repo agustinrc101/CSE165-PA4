@@ -4,34 +4,31 @@ using UnityEngine;
 
 public class MinimapPlayerBehavior : MonoBehaviour {
 	[SerializeField] private Transform _area;
-	[SerializeField] private GameObject _player;
-	[SerializeField] private GameObject _camera;
+	[SerializeField] private GameObject _centerEye;
 	[SerializeField] private float _hologramScale;
-	[SerializeField] private float _yPos;
 
-	void Update () {
+	void FixedUpdate () {
 		setPosition();
 		setRotation();
 	}
 
 	private void setPosition() {
 		//Player's current location
-		Vector3 _playerLocation = _player.transform.position;
+		Vector3 _playerLocation = _centerEye.transform.position;
 
 		//Position relative to player and area
 		Vector3 playerPos = _playerLocation - _area.position;
 
 		//Minimap's position
-		Vector3 parentPos = transform.parent.position;
+		Vector3 parentPos = transform.parent.localPosition;
 
 		//Approximated position
 		Vector3 newPos = parentPos + (playerPos * _hologramScale);
-		newPos = new Vector3(newPos.x, parentPos.y + _yPos, newPos.z);
-
-		transform.position = newPos;
+		transform.localPosition = newPos;
 	}
 
 	private void setRotation() {
-		transform.rotation = _camera.transform.rotation;
+		Quaternion rot = Quaternion.Euler(0, _centerEye.transform.rotation.eulerAngles.y, 0);
+		transform.localRotation = rot;
 	}
 }

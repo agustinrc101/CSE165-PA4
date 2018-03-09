@@ -5,6 +5,7 @@ using UnityEngine;
 public class GrabableObject : MonoBehaviour {
 	[SerializeField] private FixedJoint _joint = null;
 	[SerializeField] private GameObject _selectionObject;
+	public bool isBeingGrabbed = false;
 
 	private bool hasJoint;
 
