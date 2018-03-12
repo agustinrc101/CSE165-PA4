@@ -6,11 +6,11 @@ public class PlayerBodyBehavior : MonoBehaviour {
 	[SerializeField] private GameObject _CenterEyeAnchor;
 	
 	private float _yOffset;
-	private float _zOffset;
+	private float _zOffset = 0;
 
 	void Start() {
 		_yOffset = transform.position.y;
-		_zOffset = transform.position.z;
+		//_zOffset = transform.position.z;
 	}
 
 	// Update is called once per frame

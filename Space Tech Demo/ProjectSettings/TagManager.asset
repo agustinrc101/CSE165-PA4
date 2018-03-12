@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - isGrabable
+  - Fire
+  - Toolbelt
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Walls and Floor
   - 
   - 
   - 

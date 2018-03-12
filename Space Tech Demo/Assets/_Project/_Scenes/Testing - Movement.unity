@@ -141,6 +141,53 @@ Transform:
   m_Father: {fileID: 1738775537}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &90689619
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4289852744194570, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289852744194570, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289852744194570, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289852744194570, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289852744194570, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289852744194570, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289852744194570, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289852744194570, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114509609469368586, guid: 29e9bd9a47e391a43997479d626ef171,
+        type: 2}
+      propertyPath: _playerTPScript
+      value: 
+      objectReference: {fileID: 1201587432}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 29e9bd9a47e391a43997479d626ef171, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &261962708
 Prefab:
   m_ObjectHideFlags: 0
@@ -216,7 +263,7 @@ GameObject:
   - component: {fileID: 300991060}
   - component: {fileID: 300991059}
   - component: {fileID: 300991058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +347,7 @@ GameObject:
   - component: {fileID: 416931136}
   - component: {fileID: 416931135}
   - component: {fileID: 416931134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,53 +420,11 @@ Transform:
   m_Father: {fileID: 1957576134}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &648810151
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4350910742283522, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350910742283522, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350910742283522, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350910742283522, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350910742283522, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350910742283522, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350910742283522, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350910742283522, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: aff6bf537716e4a4586ab86b391df403, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &648810152 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1007071757663390, guid: aff6bf537716e4a4586ab86b391df403,
+  m_PrefabParentObject: {fileID: 1726428473713940, guid: 29e9bd9a47e391a43997479d626ef171,
     type: 2}
-  m_PrefabInternal: {fileID: 648810151}
+  m_PrefabInternal: {fileID: 90689619}
 --- !u!1 &846496936
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +436,7 @@ GameObject:
   - component: {fileID: 846496939}
   - component: {fileID: 846496938}
   - component: {fileID: 846496937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +545,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1201587431}
-  - component: {fileID: 1201587430}
+  - component: {fileID: 1201587432}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -548,22 +553,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1201587430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1201587429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d239a89828f963a4ba18f4902502c6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _teleportMarker: {fileID: 648810152}
-  _avatar: {fileID: 261962709}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 4294967241
 --- !u!4 &1201587431
 Transform:
   m_ObjectHideFlags: 0
@@ -579,6 +568,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1201587432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201587429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ccae0af9ed997468680e5548ca1045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tpArc: {fileID: 1400088644}
+  _teleportMarker: {fileID: 648810152}
+  _leftController: {fileID: 1848308020}
+  _rightController: {fileID: 1848308018}
+  _avatar: {fileID: 261962709}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+--- !u!114 &1400088644 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114509609469368586, guid: 29e9bd9a47e391a43997479d626ef171,
+    type: 2}
+  m_PrefabInternal: {fileID: 90689619}
+  m_Script: {fileID: 11500000, guid: 71e9a9a6f4e20f947bd4a9ec8d1c9b3b, type: 3}
 --- !u!1 &1461920013
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +669,7 @@ GameObject:
   - component: {fileID: 1547474413}
   - component: {fileID: 1547474412}
   - component: {fileID: 1547474411}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,6 +913,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 109308, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 113768, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
   m_IsPrefabParent: 0
@@ -1083,7 +1105,7 @@ GameObject:
   - component: {fileID: 1893723988}
   - component: {fileID: 1893723987}
   - component: {fileID: 1893723986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1164,7 +1186,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1957576134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
