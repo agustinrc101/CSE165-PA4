@@ -14,7 +14,6 @@ public class PortalTeleportationBehavior : MonoBehaviour {
 			Vector3 dir = _player.position - transform.position;
 
 			float dotProd = Vector3.Dot(transform.up, dir);
-			Debug.Log(dotProd);
 			//Teleport moves across portal
 			if (dotProd < 0f) {
 				float rotationDiff = Quaternion.Angle(transform.rotation, _receiver.rotation);
@@ -30,8 +29,6 @@ public class PortalTeleportationBehavior : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Debug.Log("hit: " + other.name);
-
 		if (other.CompareTag("Toolbelt"))
 			playerOverlap = true;
 	}

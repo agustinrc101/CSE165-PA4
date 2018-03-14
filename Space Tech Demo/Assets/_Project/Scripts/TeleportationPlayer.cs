@@ -66,7 +66,7 @@ public class TeleportationPlayer : MonoBehaviour {
 	}
 
 	private void teleport() {
-		transform.position = _lastLocation;
+		transform.position = new Vector3(_lastLocation.x, _lastLocation.y + 0.5f, _lastLocation.z);
 		transform.rotation = _lastRotation;
 		_lastYRotation = _curYRotation;
 		_teleporting = false;

@@ -10,6 +10,7 @@ public class PortalBehavior : MonoBehaviour {
 	[SerializeField] private Transform _otherPortal;
 	[SerializeField] private Camera _thisCam;
 	[SerializeField] private Material _thisMat;
+	[SerializeField] private float _yRotationOffset = 0f;
 
 	void Start() {
 		if (_thisCam.targetTexture != null)
@@ -24,7 +25,7 @@ public class PortalBehavior : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
 		Vector3 playerOffset = _centerEye.position - _otherPortal.position;
 		transform.position = _portal.position + playerOffset;
 
@@ -37,6 +38,6 @@ public class PortalBehavior : MonoBehaviour {
 		Vector3 newCamDir = rotationalDiff * _centerEye.forward;
 		transform.rotation = Quaternion.LookRotation(newCamDir, Vector3.up);
 		Vector3 euler = transform.rotation.eulerAngles;
-		transform.rotation = Quaternion.Euler(euler.x, 0, 0);
+		transform.rotation = Quaternion.Euler(euler.x, euler.y + _yRotationOffset, _centerEye.rotation.eulerAngles.z);
 	}
 }
