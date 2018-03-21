@@ -170,4 +170,9 @@ public class OVRGrabbable : MonoBehaviour
     }
 
 	public void setActiveSelectionObject(bool b) { _selectionObject.SetActive(b); }
+
+	public void vibrateController() {
+		if (m_grabbedBy != null)
+			m_grabbedBy.rumble();
+	}
 }

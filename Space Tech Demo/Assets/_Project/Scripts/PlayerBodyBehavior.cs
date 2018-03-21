@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerBodyBehavior : MonoBehaviour {
 	[SerializeField] private GameObject _CenterEyeAnchor;
 	
-	private float _yOffset;
-	private float _zOffset = 0;
+	private float _yOffset = 0;
+	private float _totalOffset = 0;
 
 	void Start() {
 		_yOffset = transform.position.y;
-		//_zOffset = transform.position.z;
+		_totalOffset = _yOffset;
 	}
 
 	// Update is called once per frame
@@ -20,8 +20,14 @@ public class PlayerBodyBehavior : MonoBehaviour {
 
 	private void followCameraPos() {
 		Vector3 newPos = _CenterEyeAnchor.transform.position;
-		newPos.y -= _yOffset;
-		newPos.z -= _zOffset;
+		newPos.y -= _totalOffset;
 		transform.position = newPos;
+		transform.rotation = Quaternion.Euler(0, _CenterEyeAnchor.transform.rotation.eulerAngles.y, 0);
 	}
+
+	public void setHeight(float o) {
+		_totalOffset = 2f - o;
+	}
+
+	public float getHeight() { return transform.position.y; }
 }

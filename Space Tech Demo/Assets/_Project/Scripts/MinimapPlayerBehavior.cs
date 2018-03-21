@@ -16,10 +16,10 @@ public class MinimapPlayerBehavior : MonoBehaviour {
 		//Player's current location
 		Vector3 _playerLocation = _centerEye.transform.position;
 
-		//Position relative to player and area
+		//Position relative to player and area (world coord)
 		Vector3 playerPos = _playerLocation - _area.position;
 
-		//Minimap's position
+		//Minimap's position (local area)
 		Vector3 parentPos = transform.parent.localPosition;
 
 		//Approximated position

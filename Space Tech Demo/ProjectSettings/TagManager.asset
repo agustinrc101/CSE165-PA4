@@ -7,6 +7,11 @@ TagManager:
   - isGrabable
   - Fire
   - Toolbelt
+  - IndexFinger
+  - GM
+  - Minimap
+  - Hand
+  - Robot
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/*
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -145,3 +146,4 @@ public class HandsBehavior : MonoBehaviour {
 		_heldObject.gameObject.GetComponent<GrabableObject>().setActiveSelectionObject(b);
 	}
 }
+*/

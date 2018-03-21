@@ -156,9 +156,10 @@ public class OVRGrabber : MonoBehaviour {
 		// Get the grab trigger
 		OVRGrabbable grabbable = otherCollider.GetComponent<OVRGrabbable>() ?? otherCollider.GetComponentInParent<OVRGrabbable>();
 		if (grabbable == null) return;
-
-		highlight(true, grabbable);
-		rumble();
+		if (!otherCollider.gameObject.GetComponent<OVRGrabbable>().isGrabbed){
+			highlight(true, grabbable);
+			rumble();
+		}
 
 		// Add the grabbable
 		int refCount = 0;
@@ -337,7 +338,7 @@ public class OVRGrabber : MonoBehaviour {
 		}
 	}
 
-	private void rumble() {
+	public void rumble() {
 		OVRHaptics.Channels[(int)m_controller - 1].Preempt(new OVRHapticsClip(_rumbleHz));
 		OVRHaptics.Process();
 	}

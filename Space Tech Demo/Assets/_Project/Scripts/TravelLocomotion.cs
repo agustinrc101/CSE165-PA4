@@ -10,7 +10,7 @@ public class TravelLocomotion : MonoBehaviour {
 	[SerializeField] private GameObject _left;
 	[SerializeField] private GameObject _right;
 	[SerializeField] private GameObject _centerEye;
-	[SerializeField] private float _speed = 5f;
+	[SerializeField] private float _speed = 2.5f;
 
 	private float _time = 0f;
 	private float _coolDown = 0f;
@@ -46,6 +46,9 @@ public class TravelLocomotion : MonoBehaviour {
 			_coolDown -= Time.deltaTime;
 			transform.Translate(_speed * _dir * Time.deltaTime);
 		}
+
+		if (transform.position.y < -5f)
+			transform.position = new Vector3(0, 0.5f, -5f);
 	}
 
 	private void begin(bool b) {
@@ -103,4 +106,10 @@ public class TravelLocomotion : MonoBehaviour {
 			Physics.IgnoreCollision(GetComponent<Collider>(), other);
 		}
 	}
+
+	public void setSpeed(float s) {
+		_speed = 1.5f + s;
+	}
+
+	public float getSpeed() { return _speed; }
 }
